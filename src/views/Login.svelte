@@ -1,18 +1,18 @@
 <script>
+  export let login;
+  import client from "../client";
+
   const user = {
     email: "",
     password: ""
   };
-  function signupAndLogin() {
-    console.log({ user });
+  async function signupAndLogin() {
+    await client.service("users").create(user);
+    login(user);
   }
 
   function loginWithGithub() {
-    console.log("logging in with github");
-  }
-
-  function login() {
-    console.log("registered user logging in!");
+    window.location.href = "http://localhost:3030/oauth/github";
   }
 </script>
 
@@ -55,7 +55,7 @@
     <div>Password</div>
     <input type="password" name="password" bind:value={user.password} />
   </label>
-  <button on:click={login} type="button">Login</button>
+  <button on:click={() => login(user)} type="button">Login</button>
   <button on:click={signupAndLogin} type="button">Sign up and Login</button>
   <button class="gh" on:click={loginWithGithub} type="button">
     Login with GitHub
