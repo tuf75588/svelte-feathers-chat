@@ -32,8 +32,8 @@
 
 <!-- if user is logged in, show chat component, if not, show login component -->
 
-{#if !user}
-  <Login {login} />
-{:else}
+{#if user}
   <Chat {logout} />
+{:else}
+  <Login {login} />
 {/if}

@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    border-right: 1px solid black;
+    outline: 2px solid grey;
   }
   .user-count {
     font-weight: bold;
@@ -46,6 +46,7 @@
   }
   .message-list {
     flex: 4;
+    outline: 2px solid grey;
   }
 </style>
 
@@ -67,6 +68,12 @@
     </div>
     <button on:click={logout}>Logout</button>
   </aside>
-  <div class="message-list">Hello</div>
-  <pre>{JSON.stringify(users, null, 2)}</pre>
+  <div class="message-list">
+    <div class="messages">
+      <form>
+        <input placeholder="send message" type="text" />
+      </form>
+    </div>
+  </div>
+
 </main>
