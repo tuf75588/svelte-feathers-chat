@@ -20,6 +20,7 @@
   form {
     max-width: 400px;
     margin: 0 auto;
+    padding: 1rem;
   }
   input {
     width: 100%;
